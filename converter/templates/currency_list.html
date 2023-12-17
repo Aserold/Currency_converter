@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency List</title>
+    <!-- Your additional head content here -->
+</head>
+<body>
+    <h2>All Currencies</h2>
+    <ul>
+        {% for currency in currencies %}
+            <li>{{ currency.code }} - {{ currency.name }} --------------------------- {{ currency.exchange_rate|floatformat:"2" }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if currencies.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ currencies.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ currencies.number }} of {{ currencies.paginator.num_pages }}.
+            </span>
+
+            {% if currencies.has_next %}
+                <a href="?page={{ currencies.next_page_number }}">next</a>
+                <a href="?page={{ currencies.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <!-- Your additional body content here -->
+</body>
+</html>

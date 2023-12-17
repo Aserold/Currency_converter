@@ -61,9 +61,11 @@ class Command(BaseCommand):
             if currency['code'] in exchange_data
         ]
 
-
+        exeptions_list = ['XAU', 'XAG', 'BTC']
         #finally populating the database
         for item in model_data:
+            if item['code'] in exeptions_list:
+                continue
             Currency.objects.update_or_create(
                 code=item['code'],
                 defaults={
