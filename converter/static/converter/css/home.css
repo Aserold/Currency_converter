@@ -16,7 +16,6 @@
 }
 .currencies {
     width: 80%;
-    background-color: rgb(44, 248, 214);
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
@@ -24,4 +23,25 @@
 }
 .cur-header {
     text-align: center;
+}
+body {
+    background-color: aquamarine;
+}
+nav {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+a {
+    text-decoration: none;
+    color: gray;
+}
+.header1 {
+    background: beige;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 10px 20px;
+    color: rgb(92, 107, 109);
+    font-size: 25px;
 }

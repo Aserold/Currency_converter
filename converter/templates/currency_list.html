@@ -9,10 +9,20 @@
     <link rel="stylesheet" href=" {% static 'converter/css/home.css' %}">
 </head>
 <body>
+    <div class="navbar">
+        <header class="header1">
+            <nav>
+                <h1><a href="/home" class="a_nav">Валюты</a></h1>
+                <a href="/home" class="a_nav">Home</a>
+                <a href="/calculator" class="a_nav">Calculator</a>
+            </nav>
+        </header>
+    </div>
     <div class="currencies">
         <main>
             <section>
                 <h2 class="cur-header">All Currencies</h2>
+                <h3>Euro €</h3>
                 <article class="item">
                     {% for currency in currencies %}
                         <p class="code">{{ currency.code }} - {{ currency.name }} </p><p class="rate"> {{ currency.exchange_rate|floatformat:"2" }}</p>
