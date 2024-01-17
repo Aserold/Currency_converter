@@ -1,5 +1,4 @@
 import requests
-import json
 from unicodedata import normalize
 from django.core.management.base import BaseCommand
 from converter.models import Currency
@@ -9,7 +8,8 @@ class Command(BaseCommand):
     help = 'Add symbols and their names to the database'
 
     def handle(self, *args, **options):
-        def normalize_unicode_in_json(data): #this is used to normalize the json data in symbol names
+        #this is used to normalize the json data in symbol names
+        def normalize_unicode_in_json(data):
             if isinstance(data, str):
                 return normalize('NFC', data)
             elif isinstance(data, list):
@@ -74,6 +74,5 @@ class Command(BaseCommand):
                     'exchange_rate': item['exchange_rate']
                 }
             )
-
 
         self.stdout.write(self.style.SUCCESS('Data imported successfully'))

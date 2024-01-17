@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from converter.models import Currency
 
+
 def currency_list(request):
     currency_list = Currency.objects.all()
 
