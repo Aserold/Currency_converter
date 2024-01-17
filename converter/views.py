@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from converter.models import Currency
 
@@ -17,4 +18,4 @@ def currency_list(request):
     except EmptyPage:
         currencies = paginator.page(paginator.num_pages)
 
-    return render(request, 'currency_list.html', {'currencies': currencies})
+    return HttpResponse("Hello, world. You're at the currency converter index.")
