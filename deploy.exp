@@ -1,0 +1,19 @@
+#!/usr/bin/expect
+
+set env(PATH) "/usr/local/bin:/usr/bin:/bin"
+
+spawn /bin/bash
+
+send -- "source /etc/profile\n"
+send -- "cd /home/aserold/converter\n"
+send -- "/usr/bin/git pull origin main\n"
+send -- "source venv/bin/activate\n"
+send -- "pip install -r requirements.txt\n"
+send -- "python manage.py migrate\n"
+send -- "sudo systemctl restart gunicorn\n"
+send -- "exit\n"
+
+expect "password"
+send -- "$env(SSH_PASSWORD)\r"
+
+expect eof
