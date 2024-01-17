@@ -39,11 +39,9 @@ jobs:
                 with:
                     python-version: 3.9
             - name: Установка зависимостей
-                    run: pip install -r requirements.txt
+                run: pip install -r requirements.txt
             - name: Линтинг
                 run: flake8 converter/ --exclude converter/migrations/,converter/management/
             # - name: Тестирование
             #     run: pytest
             #     env:
-
-            
