@@ -1,21 +1,21 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.http import HttpResponse
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from converter.models import Currency
+# from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+# from converter.models import Currency
 
 
 def currency_list(request):
-    currency_list = Currency.objects.all()
+    # currency_list = Currency.objects.all()
 
-    currencies_per_page = 50
-    paginator = Paginator(currency_list, currencies_per_page)
+    # currencies_per_page = 50
+    # paginator = Paginator(currency_list, currencies_per_page)
 
-    page = request.GET.get('page')
-    try:
-        currencies = paginator.page(page)
-    except PageNotAnInteger:
-        currencies = paginator.page(1)
-    except EmptyPage:
-        currencies = paginator.page(paginator.num_pages)
+    # page = request.GET.get('page')
+    # try:
+    #     currencies = paginator.page(page)
+    # except PageNotAnInteger:
+    #     currencies = paginator.page(1)
+    # except EmptyPage:
+    #     currencies = paginator.page(paginator.num_pages)
 
-    return HttpResponse("Hello, world. You're at the currency converter index.")
+    return HttpResponse("Hello, world.")
