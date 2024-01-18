@@ -11,7 +11,6 @@ send -- "source venv/bin/activate\n"
 send -- "pip install -r requirements.txt\n"
 send -- "python manage.py migrate\n"
 send -- "sudo systemctl restart gunicorn\n"
-send -- "exit\n"
 
 expect "password"
 send -- "Oluwo2006\r"
