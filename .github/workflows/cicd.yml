@@ -42,9 +42,18 @@ jobs:
             run: pip install -r requirements.txt
           - name: Линтинг
             run: flake8 converter/ --exclude converter/migrations/,converter/management/
-          # - name: Тестирование
-          #     run: pytest
-          #     env:
+          - name: Тестирование
+            run: python manage.py test
+            env:
+              SECRET_KEY: ${{ env.SECRET }}
+              DEBUG: ${{ env.DEBUG }}
+              ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
+              DB_ENGINE: ${{ env.DB_ENGINE }}
+              DB_USER: ${{ env.DB_USER }}
+              DB_PASSWORD: ${{ env.DB_PASSWORD }}
+              DB_NAME: ${{ env.DB_NAME }}
+              DB_HOST: ${{ env.DB_HOST }}
+              DB_PORT: ${{ env.DB_PORT }}
           - name: Деплой
             uses: appleboy/ssh-action@master
             with:

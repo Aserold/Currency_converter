@@ -1,3 +1,8 @@
-# from django.test import TestCase
+from unittest import TestCase
 
-# Create your tests here.
+
+class TestForActions(TestCase):
+    def test_addition(self):
+        equation = 9 + 9
+        expected = 18
+        self.assertEqual(equation, expected)
